@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="AwqatSalaat.WinUI.Views.WidgetSummary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="using:System"
+    xmlns:app="using:AwqatSalaat.WinUI"
+    xmlns:local="using:AwqatSalaat.WinUI.Views"
+    xmlns:controls="using:AwqatSalaat.WinUI.Controls"
+    xmlns:converters="using:AwqatSalaat.WinUI.Converters"
+    xmlns:mk="using:AwqatSalaat.WinUI.Markup"
+    xmlns:media="using:AwqatSalaat.WinUI.Media"
+    xmlns:vm="using:AwqatSalaat.ViewModels"
+    xmlns:ash="using:AwqatSalaat.Helpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" x:DefaultBindMode="OneWay">
+    <UserControl.DataContext>
+        <vm:WidgetViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <StaticResource x:Key="ToggleButtonBackground" ResourceKey="ControlFillColorTransparentBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundPointerOver" ResourceKey="ControlFillColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundPressed" ResourceKey="ControlFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundDisabled" ResourceKey="ControlFillColorDisabledBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundChecked" ResourceKey="ControlFillColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPointerOver" ResourceKey="ControlFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPressed" ResourceKey="ControlFillColorTertiaryBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedDisabled" ResourceKey="AccentFillColorDisabledBrush" />
+                    <StaticResource x:Key="ToggleButtonForeground" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundChecked" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPressed" ResourceKey="TextFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedDisabled" ResourceKey="TextOnAccentFillColorDisabled" />
+                    <StaticResource x:Key="ToggleButtonBorderBrush" ResourceKey="ControlFillColorTransparentBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushPointerOver" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushPressed" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushDisabled" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushChecked" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushCheckedPointerOver" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushCheckedPressed" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushCheckedDisabled" ResourceKey="ControlFillColorTransparentBrush" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Default">
+                    <StaticResource x:Key="ToggleButtonBackground" ResourceKey="ControlFillColorTransparentBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundPointerOver" ResourceKey="ControlFillColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundPressed" ResourceKey="ControlFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundDisabled" ResourceKey="ControlFillColorDisabledBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundChecked" ResourceKey="ControlFillColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPointerOver" ResourceKey="ControlFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPressed" ResourceKey="ControlFillColorTertiaryBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedDisabled" ResourceKey="AccentFillColorDisabledBrush" />
+                    <StaticResource x:Key="ToggleButtonForeground" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundChecked" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPressed" ResourceKey="TextFillColorSecondaryBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedDisabled" ResourceKey="TextOnAccentFillColorDisabled" />
+                    <StaticResource x:Key="ToggleButtonBorderBrush" ResourceKey="ControlFillColorTransparentBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushPointerOver" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushPressed" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushDisabled" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushChecked" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushCheckedPointerOver" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushCheckedPressed" ResourceKey="ControlStrokeColorDefaultBrush" />
+                    <StaticResource x:Key="ToggleButtonBorderBrushCheckedDisabled" ResourceKey="ControlFillColorTransparentBrush" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <GridLength x:Key="ZeroGridLength">0</GridLength>
+            <GridLength x:Key="MaxGridLength">54</GridLength>
+            <GridLength x:Key="StarGridLength">*</GridLength>
+            <Thickness x:Key="ZeroThickness">0</Thickness>
+            <HorizontalAlignment x:Key="StretchAlignment">Stretch</HorizontalAlignment>
+
+            <converters:BooleanToVisibilityInvertedConverter x:Key="BooleanToVisibilityInvertedConverter"/>
+            <converters:BooleanInvertedConverter x:Key="BooleanInvertedConverter"/>
+            <converters:EnumEqualityConverter x:Key="EnumEqualityConverter"/>
+
+            <media:DesktopAcrylicSystemBackdrop x:Key="DesktopAcrylicSystemBackdrop"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Transitions>
+        <EdgeUIThemeTransition Edge="Bottom"/>
+    </UserControl.Transitions>
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="BackgroundStates">
+                <VisualState x:Name="Normal"/>
+                <VisualState x:Name="NotificationNear">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.DisplayedTime.State, Converter={StaticResource EnumEqualityConverter}, ConverterParameter=Near}"/>
+                    </VisualState.StateTriggers>
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimation To="1" Duration="0:0:2" Storyboard.TargetName="alert" Storyboard.TargetProperty="Opacity" AutoReverse="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="NotificationEntered">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.DisplayedTime.State, Converter={StaticResource EnumEqualityConverter}, ConverterParameter=EnteredRecently}"/>
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <DoubleAnimation To="1" Duration="0:0:0" Storyboard.TargetName="alert" Storyboard.TargetProperty="Opacity"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="alert" Storyboard.TargetProperty="Background">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource FillCriticalBrush}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="toggle" Storyboard.TargetProperty="Foreground">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextOnAccentFillColorDefaultBrush}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                    <VisualState.Setters>
+                        <Setter Target="afterTB.Visibility" Value="Collapsed"/>
+                        <Setter Target="sinceTB.Visibility" Value="Visible"/>
+                        <Setter Target="sign.Visibility" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="CountdownStates">
+                <VisualState x:Name="WithSeconds">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.WidgetSettings.Realtime.ShowSeconds}"/>
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <DoubleAnimation EnableDependentAnimation="True" Storyboard.TargetName="gap" Storyboard.TargetProperty="MaxWidth" From="0" To="6" Duration="0:0:.1"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="WithoutSeconds">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.WidgetSettings.Realtime.ShowSeconds, Converter={StaticResource BooleanInvertedConverter}}"/>
+                    </VisualState.StateTriggers>
+                    <Storyboard>
+                        <DoubleAnimation EnableDependentAnimation="True" Storyboard.TargetName="gap" Storyboard.TargetProperty="MaxWidth" To="0" Duration="0:0:.1"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="DisplayModes">
+                <VisualState x:Name="Default" />
+                <VisualState x:Name="CompactNoCountdown">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>2,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimation Storyboard.TargetName="errorGlyph" Storyboard.TargetProperty="FontSize" To="16" Duration="0"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="gap" Storyboard.TargetProperty="Width" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col2" Storyboard.TargetProperty="Width" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Compact">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>2,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimation Storyboard.TargetName="errorGlyph" Storyboard.TargetProperty="FontSize" To="16" Duration="0"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="gap" Storyboard.TargetProperty="Width" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col1" Storyboard.TargetProperty="Width" Duration="0:0:8" RepeatBehavior="Forever">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col2" Storyboard.TargetProperty="Width" Duration="0:0:8" RepeatBehavior="Forever">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ZeroGridLength}"/>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{StaticResource MaxGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="CompactHorizontal">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="afterTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="afterTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="1"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="sinceTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="sinceTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="1"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="row1" Storyboard.TargetProperty="Height" Duration="0:0:9" RepeatBehavior="Forever">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="row2" Storyboard.TargetProperty="Height" Duration="0:0:9" RepeatBehavior="Forever">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ZeroGridLength}"/>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:5" Value="{StaticResource StarGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="CompactHorizontalNoCountdown">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="afterTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="afterTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="1"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="sinceTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="sinceTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="1"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="row2" Storyboard.TargetProperty="Height" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <!-- Vertical taskbar: only the prayer time (top) and the countdown (below) -->
+                <VisualState x:Name="Vertical">
+                    <VisualState.Setters>
+                        <Setter Target="grid.Margin" Value="0"/>
+                        <Setter Target="prayerTB.Opacity" Value="0"/>
+                        <Setter Target="prayerTB.MaxWidth" Value="0"/>
+                        <Setter Target="prayerTB.MaxHeight" Value="0"/>
+                        <Setter Target="afterTB.Opacity" Value="0"/>
+                        <Setter Target="afterTB.MaxWidth" Value="0"/>
+                        <Setter Target="afterTB.MaxHeight" Value="0"/>
+                        <Setter Target="sinceTB.Opacity" Value="0"/>
+                        <Setter Target="sinceTB.MaxWidth" Value="0"/>
+                        <Setter Target="sinceTB.MaxHeight" Value="0"/>
+                    </VisualState.Setters>
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="countdownPanel" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="countdownPanel" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="1"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="gap" Storyboard.TargetProperty="Width" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col2" Storyboard.TargetProperty="Width" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>2,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimation Storyboard.TargetName="errorGlyph" Storyboard.TargetProperty="FontSize" To="16" Duration="0"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VerticalNoCountdown">
+                    <VisualState.Setters>
+                        <Setter Target="grid.Margin" Value="0"/>
+                        <Setter Target="prayerTB.Opacity" Value="0"/>
+                        <Setter Target="prayerTB.MaxWidth" Value="0"/>
+                        <Setter Target="prayerTB.MaxHeight" Value="0"/>
+                        <Setter Target="afterTB.Opacity" Value="0"/>
+                        <Setter Target="afterTB.MaxWidth" Value="0"/>
+                        <Setter Target="afterTB.MaxHeight" Value="0"/>
+                        <Setter Target="sinceTB.Opacity" Value="0"/>
+                        <Setter Target="sinceTB.MaxWidth" Value="0"/>
+                        <Setter Target="sinceTB.MaxHeight" Value="0"/>
+                        <Setter Target="countdownPanel.Opacity" Value="0"/>
+                        <Setter Target="countdownPanel.MaxWidth" Value="0"/>
+                        <Setter Target="countdownPanel.MaxHeight" Value="0"/>
+                    </VisualState.Setters>
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="timeTB" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="countdownPanel" Storyboard.TargetProperty="(Grid.Column)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="countdownPanel" Storyboard.TargetProperty="(Grid.Row)" Duration="0">
+                            <DiscreteObjectKeyFrame Value="1"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="gap" Storyboard.TargetProperty="Width" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="col2" Storyboard.TargetProperty="Width" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="row2" Storyboard.TargetProperty="Height" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroGridLength}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Thickness>2,0</Thickness>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="startText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="HorizontalAlignment" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource StretchAlignment}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorPanel" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="errorText" Storyboard.TargetProperty="Margin" Duration="0">
+                            <DiscreteObjectKeyFrame Value="{StaticResource ZeroThickness}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimation Storyboard.TargetName="errorGlyph" Storyboard.TargetProperty="FontSize" To="16" Duration="0"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Border Background="{x:Bind ViewModel.WidgetSettings.Realtime.TaskbarButtonBackgroundSolidColor, Converter={StaticResource ColorHexConverter}}"
+                Visibility="{x:Bind ViewModel.WidgetSettings.Realtime.TaskbarButtonBackgroundType, Converter={StaticResource EnumEqualityToVisibilityConverter}, ConverterParameter=SolidColor, Mode=OneWay}"
+                CornerRadius="{ThemeResource ControlCornerRadius}"/>
+        <controls:ToggleButtonEx x:Name="toggle" IsChecked="{x:Bind flyout.IsOpen}" IsThreeState="False" Checked="ToggleButton_Checked" Padding="0" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" IsTextScaleFactorEnabled="False">
+            <Grid x:Name="btngrid">
+                <Grid.ContextFlyout>
+                    <controls:MenuFlyoutEx ShouldConstrainToRootBounds="False" SystemBackdrop="{StaticResource DesktopAcrylicSystemBackdrop}">
+                        <MenuFlyoutItem Text="{mk:I18n Key=UI.ContextMenu.Reposition}" Command="{x:Bind app:TaskBarManager.RepositionWidget, Mode=OneTime}"/>
+                        <MenuFlyoutItem Text="{mk:I18n Key=UI.ContextMenu.ManualPosition}" Command="{x:Bind app:TaskBarManager.ManuallyPositionWidget, Mode=OneTime}"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem Text="{mk:I18n Key=UI.ContextMenu.Hide}" Command="{x:Bind app:TaskBarManager.HideWidget, Mode=OneTime}"/>
+                        <MenuFlyoutSeparator Visibility="{x:Bind displayFlyoutSubItem.Visibility, Mode=OneWay}"/>
+                        <MenuFlyoutSubItem x:Name="displayFlyoutSubItem" Text="{mk:I18n Key=UI.ContextMenu.Display}" IsEnabled="{x:Bind ViewModel.WidgetSettings.Settings.IsConfigured}">
+                            <RadioMenuFlyoutItem Text="{mk:I18n Key=UI.ContextMenu.AlwaysPrimary}" GroupName="DisplayGroup" Command="{x:Bind app:TaskBarManager.SetDisplay, Mode=OneTime}" CommandParameter="PRIMARY"/>
+                        </MenuFlyoutSubItem>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem Text="{mk:I18n Key=UI.ContextMenu.Quit}" Command="{x:Bind app:App.Quit, Mode=OneTime}"/>
+                    </controls:MenuFlyoutEx>
+                </Grid.ContextFlyout>
+                <Grid x:Name="notificationIndicator" Opacity="{x:Bind ViewModel.WidgetSettings.Realtime.NotificationIndicatorOpacity}">
+                    <Border x:Name="alert" Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="{ThemeResource ControlCornerRadius}" Opacity="0"/>
+                </Grid>
+                <Grid x:Name="grid" MaxHeight="40" Margin="3" Visibility="{x:Bind ViewModel.WidgetSettings.Settings.IsConfigured}">
+                    <Grid Visibility="{x:Bind ViewModel.IsRefreshing, Converter={StaticResource BooleanToVisibilityInvertedConverter}}">
+                        <Grid HorizontalAlignment="Center" Visibility="{x:Bind ViewModel.HasError, Converter={StaticResource BooleanToVisibilityInvertedConverter}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="col1" Width="50" MaxWidth="50"/>
+                                <ColumnDefinition x:Name="gap" Width="6" MaxWidth="6"/>
+                                <ColumnDefinition x:Name="col2" Width="54" MaxWidth="54"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="row1"/>
+                                <RowDefinition x:Name="row2"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock x:Name="prayerTB" Text="{x:Bind ViewModel.DisplayedTime.Name, FallbackValue=NAME}" HorizontalAlignment="{x:Bind ElementsAlignment}" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="timeTB" Text="{x:Bind converters:CustomDateTimeConverter.FormatShortTime(ViewModel.DisplayedTime.Time, ash:LocaleManager.Default.CurrentCulture), FallbackValue=TIME}" HorizontalAlignment="{x:Bind ElementsAlignment}" VerticalAlignment="Center" Grid.Row="1"/>
+
+                            <TextBlock x:Name="afterTB" Text="{mk:I18n Key=UI.Summary.After}" HorizontalAlignment="{x:Bind ElementsAlignment}" VerticalAlignment="Center" Grid.Column="2"/>
+                            <!--We can't update "After" text because I18n extension uses Binding
+                                which is neither supported in VisualState setters nor in animations.
+                                So we have to use a separate element for "Since"-->
+                            <TextBlock x:Name="sinceTB" Text="{mk:I18n Key=UI.Summary.Since}" HorizontalAlignment="{x:Bind ElementsAlignment}" VerticalAlignment="Center" Grid.Column="2" Visibility="Collapsed"/>
+                            <StackPanel x:Name="countdownPanel" Orientation="Horizontal" HorizontalAlignment="{x:Bind ElementsAlignment}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" FlowDirection="LeftToRight">
+                                <TextBlock x:Name="sign" Text="+" Visibility="Collapsed"/>
+                                <TextBlock x:Name="countdownTB" Text="{x:Bind local:WidgetSummary.FormatCountdown(ViewModel.WidgetSettings.CountdownFormat, ViewModel.DisplayedTime.Countdown, IsVerticalTaskbar), FallbackValue=COUNTDOWN}" FlowDirection="{x:Bind timeTB.FlowDirection}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <TextBlock
+                    Text="{mk:I18n Key=UI.Summary.Refreshing}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap"
+                    Margin="2,0"
+                    Visibility="{x:Bind ViewModel.IsRefreshing}"/>
+                <ProgressBar
+                    IsIndeterminate="True"
+                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                    VerticalAlignment="Bottom"
+                    Visibility="{x:Bind ViewModel.IsRefreshing}"/>
+                <Grid
+                    x:Name="errorPanel"
+                    ColumnDefinitions="Auto,*"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="3,0"
+                    Visibility="{x:Bind ViewModel.HasError}">
+                    <FontIcon x:Name="errorGlyph" Glyph="&#xE7BA;" FontSize="20" Foreground="{ThemeResource TextHighlightBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="errorText" Text="{mk:I18n Key=UI.Summary.ErrorOccured}" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="8,0,0,0" Grid.Column="1"/>
+                </Grid>
+                <Grid
+                    x:Name="startPanel"
+                    ColumnDefinitions="Auto,*"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="4,0"
+                    Visibility="{x:Bind ViewModel.WidgetSettings.Settings.IsConfigured, Converter={StaticResource BooleanToVisibilityInvertedConverter}}">
+                    <FontIcon Glyph="&#xE7BA;" FontSize="20" Foreground="{ThemeResource TextHighlightBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="startText" Text="{mk:I18n Key=UI.Summary.TapToStart}" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Margin="8,0,0,0" Grid.Column="1"/>
+                </Grid>
+            </Grid>
+            <FlyoutBase.AttachedFlyout>
+                <controls:FlyoutEx x:Name="flyout" ShouldConstrainToRootBounds="False" SystemBackdrop="{StaticResource DesktopAcrylicSystemBackdrop}" Opened="Flyout_Opened" Closed="Flyout_Closed">
+                    <Flyout.FlyoutPresenterStyle>
+                        <Style TargetType="FlyoutPresenter" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="MaxWidth" Value="1000" />
+                            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+                            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+                        </Style>
+                    </Flyout.FlyoutPresenterStyle>
+                    <Grid x:Name="flyoutContent">
+                        <local:WidgetPanel x:Name="widgetPanel" MinWidth="200" Visibility="{x:Bind ViewModel.WidgetSettings.IsOpen, Converter={StaticResource BooleanToVisibilityInvertedConverter}}"/>
+                        <local:SettingsPanel DataContext="{x:Bind ViewModel.WidgetSettings}"
+                                             MinWidth="300"
+                                             MaxWidth="760"
+                                             ParentFlyout="{x:Bind flyout}"
+                                             Visibility="{x:Bind ViewModel.WidgetSettings.IsOpen}"/>
+                    </Grid>
+                </controls:FlyoutEx>
+            </FlyoutBase.AttachedFlyout>
+        </controls:ToggleButtonEx>
+    </Grid>
+</UserControl>
